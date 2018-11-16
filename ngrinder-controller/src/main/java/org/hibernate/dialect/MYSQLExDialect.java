@@ -11,17 +11,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License. 
  */
-package liquibase.statement.core;
+package org.hibernate.dialect;
 
-import liquibase.statement.AbstractSqlStatement;
+import java.sql.Types;
 
 /**
- * Customized {@link LockDatabaseChangeLogStatement}.
- * 
- * @see org.ngrinder.infra.init.LockExDatabaseChangeLogGenerator
- * @author JunHo Yoon
- * @since 3.0
+ * @since 3.5.0
  */
-public class LockExDatabaseChangeLogStatement extends AbstractSqlStatement {
+public class MYSQLExDialect extends MySQLDialect {
 
+	public MYSQLExDialect() {
+		super();
+		registerColumnType( Types.VARCHAR, 65535, "text" );
+	}
 }
